@@ -7,7 +7,7 @@
   },
   "host" : "virtserver.swaggerhub.com",
   "basePath" : "/paymiumm/paymiumm1/1.0",
-  "schemes" : [ "https" ],
+  "schemes" : [ "https", "http" ],
   "paths" : {
     "/register" : {
       "post" : {
