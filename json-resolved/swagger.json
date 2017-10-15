@@ -1,0 +1,71 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "paymiumm api",
+    "version" : "1.0",
+    "title" : "ESN"
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/paymiumm/paymiumm1/1.0",
+  "schemes" : [ "https", "http" ],
+  "paths" : {
+    "/register" : {
+      "post" : {
+        "summary" : "Register a new user",
+        "description" : "render the register page",
+        "parameters" : [ {
+          "name" : "full-name",
+          "in" : "query",
+          "description" : "full-name",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "username",
+          "in" : "query",
+          "description" : "username",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "email",
+          "in" : "query",
+          "description" : "email",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "New user is created succesfully",
+            "schema" : {
+              "$ref" : "#/definitions/inline_response_201"
+            }
+          },
+          "202" : {
+            "description" : "user already exist. please login"
+          },
+          "401" : {
+            "description" : "failed to register user"
+          },
+          "500" : {
+            "description" : "internal server error"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "inline_response_201" : {
+      "required" : [ "email", "full_name", "username" ],
+      "properties" : {
+        "full_name" : {
+          "type" : "string"
+        },
+        "username" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
